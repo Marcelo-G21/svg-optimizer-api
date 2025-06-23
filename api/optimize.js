@@ -3,14 +3,23 @@
 const { optimize } = require("svgo");
 
 // Export the API handler (im using it for Vercel)
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method Not Allowed. Use POST." });
   }
 
-  //We need that raw SVG as plain text in the request body, so make sure you're passing it like that __〆(￣ー￣ )
-  const svgContent = req.body;
+  let svgContent = "";
+  try {
+    svgContent = await new Promise((resolve, reject) => {
+      let data = "";
+      req.on("data", chunk => (data += chunk));
+      req.on("end", () => resolve(data));
+      req.on("error", reject);
+    })
+  } catch (e) {
+    return res.status(400).json({ error: "Invalid body received"});
+  }
 
   if (!svgContent || typeof svgContent !== "string") {
     return res
