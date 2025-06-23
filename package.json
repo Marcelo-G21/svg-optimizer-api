@@ -1,0 +1,14 @@
+{
+  "name": "svg-optimizer",
+  "version": "1.0.0",
+  "description": "svg optimizer with svgo",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "autxmn",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "svgo": "^4.0.0"
+  }
+}
