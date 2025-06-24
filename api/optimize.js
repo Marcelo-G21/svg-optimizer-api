@@ -81,6 +81,14 @@ module.exports = async (req, res) => {
         },
         "removeDimensions",         // Remove width/height to make SVG responsive
         "removeScriptElement",      // Remove any <script> tags for security
+        "mergePaths",               // Merge similar rotes to reduce nodes
+        "collapseGroups",           // Remove innecesary groups (e.g. <g>)
+        "convertPathData",          // Simplify d attributes in <path>
+        "convertTransform",         // Reduces transform complexity
+        "removeEmptyAttrs",         //Removes worthless attributes
+        "removeEmptyContainers",    //Removes empty elements
+        "sortAttrs",                //Sort atributesfor optimal GZIP compression
+        "sortDefChildren",          //Soort nodes for optimal GZIP compression
       ],
     });
 
