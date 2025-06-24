@@ -21,7 +21,6 @@ It applies SVGO plugins to reduce file size, maintaining visual integrity (｡�
 - Simplifies numeric values with controlled precision
 - Sorts SVG attributes alphabetically
 - Removes unnecessary dimensions and scripts
-- Removes `xmlns` unless explicitly needed
 
 ---
 
@@ -31,7 +30,7 @@ The core of the optimization uses SVGO’s multipass engine and the following pl
 
 - `preset-default` (with key overrides to preserve visual fidelity)
 - `convertColors`, `cleanupNumericValues`, `sortAttrs`
-- `removeDimensions`, `removeScriptElement`, `removeXMLNS`
+- `removeDimensions`, `removeScriptElement`
 
 These plugins work together to:
 - Minimize output size
