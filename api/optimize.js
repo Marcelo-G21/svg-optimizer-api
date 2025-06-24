@@ -81,7 +81,6 @@ module.exports = async (req, res) => {
         },
         "removeDimensions",         // Remove width/height to make SVG responsive
         "removeScriptElement",      // Remove any <script> tags for security
-        "removeXMLNS",              // Remove xmlns attribute (optional)
       ],
     });
 
